@@ -13,7 +13,7 @@ public class CreateCompanyUseCase {
     private CompanyRepository companyRepository;
 
     public CompanyEntity execute(CompanyEntity companyEntity) {
-        this.companyRepository.findByUsernameOrEmail(companyEntity.getUserName(), companyEntity.getEmail())
+        this.companyRepository.findByUsernameOrEmail(companyEntity.getUsername(), companyEntity.getEmail())
                 .ifPresent((company) -> {
                     throw new UserFoundException("Usuário já cadastrado!");
                 });
