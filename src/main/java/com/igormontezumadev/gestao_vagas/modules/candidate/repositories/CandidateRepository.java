@@ -1,6 +1,6 @@
 package com.igormontezumadev.gestao_vagas.modules.candidate.repositories;
 
-import com.igormontezumadev.gestao_vagas.module.candidate.CandidateEntity;
+import com.igormontezumadev.gestao_vagas.modules.candidate.entities.CandidateEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
