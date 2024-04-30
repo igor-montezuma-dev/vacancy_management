@@ -1,5 +1,6 @@
 package com.igormontezumadev.gestao_vagas.module.candidate.controllers;
 
+import com.igormontezumadev.gestao_vagas.exceptions.UserFoundException;
 import com.igormontezumadev.gestao_vagas.module.candidate.CandidateEntity;
 import com.igormontezumadev.gestao_vagas.module.candidate.CandidateRepository;
 import jakarta.validation.Valid;
@@ -17,6 +18,10 @@ public class CandidateController {
     private CandidateRepository candidateRepository;
     @PostMapping("/")
     public CandidateEntity create(@Valid @RequestBody CandidateEntity candidateEntity){
+        this.candidateRepository.findByUsernameOrEmail(candidateEntity.getUsername(), candidateEntity.getEmail())
+                .ifPresent((user) -> {
+                    throw new UserFoundException("Usuário já cadastrado.");
+                });
         return this.candidateRepository.save(candidateEntity);
     }
 
