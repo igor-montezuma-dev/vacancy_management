@@ -1,4 +1,4 @@
-package com.igormontezumadev.gestao_vagas.module.candidate.useCases;
+package com.igormontezumadev.gestao_vagas.modules.candidate.useCases;
 
 import com.igormontezumadev.gestao_vagas.exceptions.UserFoundException;
 import com.igormontezumadev.gestao_vagas.modules.candidate.entities.CandidateEntity;
