@@ -17,13 +17,15 @@ public class CreateCompanyUseCase {
     private PasswordEncoder passwordEncoder;
 
     public CompanyEntity execute(CompanyEntity companyEntity) {
-        this.companyRepository.findByUsernameOrEmail(companyEntity.getUsername(), companyEntity.getEmail())
-                .ifPresent((company) -> {
-                    throw new UserFoundException("Usuário já cadastrado!");
+        this.companyRepository
+                .findByUsernameOrEmail(companyEntity.getUsername(), companyEntity.getEmail())
+                .ifPresent(user -> {
+                    throw new UserFoundException("User already exists");
                 });
 
-        var passwordEncoded = passwordEncoder.encode(companyEntity.getPassword());
-        companyEntity.setPassword(passwordEncoded);
+        var password = passwordEncoder.encode(companyEntity.getPassword());
+        companyEntity.setPassword(password);
+
         return this.companyRepository.save(companyEntity);
     }
 }
