@@ -1,4 +1,4 @@
-package com.igormontezumadev.gestao_vagas.module.candidate;
+package com.igormontezumadev.gestao_vagas.modules.candidate.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,7 +25,7 @@ public class CandidateEntity {
     private String username;
     @Email(message = "O campo [email] deve conter um email válido.")
     private String email;
-    @Length(min= 6, max =20)
+    @Length(min= 6, max =100)
     private String password;
     private String description;
     private String curriculum;

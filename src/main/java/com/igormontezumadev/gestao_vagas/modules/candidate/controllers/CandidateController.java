@@ -1,7 +1,7 @@
-package com.igormontezumadev.gestao_vagas.module.candidate.controllers;
+package com.igormontezumadev.gestao_vagas.modules.candidate.controllers;
 
-import com.igormontezumadev.gestao_vagas.module.candidate.CandidateEntity;
-import com.igormontezumadev.gestao_vagas.module.candidate.useCases.CreateCandidateUseCase;
+import com.igormontezumadev.gestao_vagas.modules.candidate.entities.CandidateEntity;
+import com.igormontezumadev.gestao_vagas.modules.candidate.useCases.CreateCandidateUseCase;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
