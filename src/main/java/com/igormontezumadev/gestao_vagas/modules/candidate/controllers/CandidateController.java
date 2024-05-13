@@ -26,12 +26,15 @@ public class CandidateController {
     private ProfileCandidateUseCase profileCandidateUseCase;
 
 
-    @GetMapping("/profile")
-    public ResponseEntity<Object> getCandidate(HttpServletRequest request) {
-        var candidateId = request.getAttribute("candidate_id");
+    @GetMapping("/")
+    public ResponseEntity<Object> getProfileCandidate(HttpServletRequest request) {
+
+        var idCandidate = (String) request.getAttribute("candidate_id");
+
         try {
-            var result = this.profileCandidateUseCase.execute(UUID.fromString(candidateId.toString()));
-            return ResponseEntity.ok().body(result);
+            var profile = this.profileCandidateUseCase.execute(UUID.fromString(idCandidate.toString().toUpperCase()));
+            return ResponseEntity.ok().body(profile);
+
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
